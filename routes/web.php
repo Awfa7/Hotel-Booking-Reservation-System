@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Backend\BookAreaController;
 use App\Http\Controllers\Backend\TeamController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -61,5 +62,11 @@ Route::middleware(['auth','roles:admin'])->group(function(){
         Route::post('/team/update','UpdateTeam')->name('update.team');
         Route::get('/team/delete/{id}','DeleteTeam')->name('delete.team');
         
+    });
+
+    // Book Area Route
+    Route::controller(BookAreaController::class)->group(function(){
+        Route::get('/book-area/edit','EditBookArea')->name('edit.book.area');
+        Route::post('/book-area/update','UpdateBookArea')->name('update.book.area');
     });
 });
