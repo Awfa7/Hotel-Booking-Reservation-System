@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Backend\TeamController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -51,4 +51,15 @@ Route::middleware(['auth','roles:admin'])->group(function(){
 
 Route::get('/admin/login', [AdminController::class, 'AdminLogin'])->name('admin.login');
 
-
+Route::middleware(['auth','roles:admin'])->group(function(){
+    // Team Route
+    Route::controller(TeamController::class)->group(function(){
+        Route::get('/team/all','AllTeam')->name('all.team');
+        Route::get('/team/add','AddTeam')->name('add.team');
+        Route::post('/team/store','StoreTeam')->name('store.team');
+        Route::get('/team/edit/{id}','EditTeam')->name('edit.team');
+        Route::post('/team/update','UpdateTeam')->name('update.team');
+        Route::get('/team/delete/{id}','DeleteTeam')->name('delete.team');
+        
+    });
+});
