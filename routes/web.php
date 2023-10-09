@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Backend\BookAreaController;
+use App\Http\Controllers\Backend\RoomController;
 use App\Http\Controllers\Backend\RoomTypeController;
 use App\Http\Controllers\Backend\TeamController;
 use App\Http\Controllers\UserController;
@@ -76,5 +77,12 @@ Route::middleware(['auth','roles:admin'])->group(function(){
         Route::get('/room-type/list','ListRoomType')->name('list.room.type');
         Route::get('/room-type/add','AddRoomType')->name('add.room.type');
         Route::post('/room-type/store','StoreRoomType')->name('store.room.type');
+    });
+
+    // Room Route
+    Route::controller(RoomController::class)->group(function(){
+        Route::get('/room/edit/{id}','EditRoom')->name('edit.room');
+        Route::post('/room/update/{id}', 'UpdateRoom')->name('update.room');
+        Route::get('/multi-image/delete/{id}','MultiImageDelete')->name('delete.multi.image');
     });
 });
