@@ -65,7 +65,7 @@
                                                             id="image">
                                                         <img id="showImage"
                                                             src="{{ !empty($editData->image) ? url('upload/room_img/' . $editData->image) : url('upload/no_image.jpg') }}"
-                                                            alt="Admin" class="bg-primary" width="60" height="60" >
+                                                            alt="Admin" class="bg-primary" width="60" height="60">
                                                     </div>
                                                     <div class="col-md-6">
                                                         <label for="input4" class="form-label">Gallery Image </label>
@@ -77,7 +77,8 @@
                                                             <img src="{{ !empty($item->multi_img) ? url('upload/room_img/multi_img/' . $item->multi_img) : url('upload/no_image.jpg') }}"
                                                                 alt="Admin" class="bg-primary" height="60"
                                                                 width="60">
-                                                                <a href="{{ route('delete.multi.image',$item->id) }}"><i class="lni lni-close"></i></a>
+                                                            <a href="{{ route('delete.multi.image', $item->id) }}"><i
+                                                                    class="lni lni-close"></i></a>
                                                         @endforeach
 
                                                         <div class="row" id="preview_img"></div>
@@ -301,15 +302,67 @@
                                     </div>
                                 </div>
                                 <div class="tab-pane fade" id="primaryprofile" role="tabpanel">
-                                    <p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee
-                                        squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes
-                                        anderson artisan four loko farm-to-table craft beer twee. Qui photo booth
-                                        letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl
-                                        cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit.
-                                        Keytar helvetica VHS salvia yr, vero magna velit sapiente labore stumptown. Vegan
-                                        fanny pack odio cillum wes anderson 8-bit, sustainable jean shorts beard ut DIY
-                                        ethical culpa terry richardson biodiesel. Art party scenester stumptown, tumblr
-                                        butcher vero sint qui sapiente accusamus tattooed echo park.</p>
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <a class="card-title btn btn-primary float-right" onclick="addRoomNo()" id="addRoomNo">
+                                                <i class="lni lni-plus">Add New</i>
+                                            </a>
+                                            <div class="roomNoHide" id="roomNoHide">
+                                                <form action="{{ route('store.room.number',$editData->id) }}" method="POST">
+                                                    @csrf
+
+                                                    <input type="hidden" name="room_type_id" value="{{ $editData->room_type_id }}">
+
+                                                    <div class="row">
+                                                        <div class="col-md-4">
+                                                            <label for="input2" class="form-label">Room Number </label>
+                                                            <input type="text" name="room_no" class="form-control"
+                                                                id="input2">
+                                                        </div>
+
+                                                        <div class="col-md-4">
+                                                            <label for="input7" class="form-label">Status</label>
+                                                            <select name="status" id="input7" class="form-select">
+                                                                <option selected="">Select Status...</option>
+                                                                <option value="Active">Active </option>
+                                                                <option value="Inactive">Inactive </option>
+
+                                                            </select>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <button type="submit" class="btn btn-success"
+                                                                style="margin-top: 28px;">Save</button>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+
+                                            <table class="table mb-0 table-striped" id="roomview">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">Room Number</th>
+                                                        <th scope="col">Status</th>
+                                                        <th scope="col">Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @foreach ($allRoomNo as $item)
+                                                    
+                                                    <tr>
+                                                        <td>{{ $item->room_no }}</td>
+                                                        <td>{{ $item->status }}</td>
+                                                        <td><a href="{{ route('edit.room.number',$item->id) }}"
+                                                                class="btn btn-warning px-3 radius-30">Edit</a>
+                                                            <a href="{{ route('delete.room.number',$item->id) }}"
+                                                                class="btn btn-danger px-3 radius-30"
+                                                                id="delete">Delete</a>
+                                                        </td>
+                                                    </tr>
+                                                    @endforeach
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -415,4 +468,19 @@
         });
     </script>
     <!--========== End of Basic Plan Facilities ==============-->
+
+    <!--========== Start Room Number Add ==============-->
+
+    <script>
+        $('#roomNoHide').hide();
+        $('#roomview').show();
+
+        function addRoomNo() {
+            $('#roomNoHide').show();
+            $('#roomview').hide();
+            $('#addRoomNo').hide();
+        }
+    </script>
+
+    <!--========== End Room Number Add ==============-->
 @endsection
