@@ -7,6 +7,7 @@ use App\Models\Facility;
 use App\Models\MultiImage;
 use App\Models\Room;
 use App\Models\RoomNumber;
+use App\Models\RoomType;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image;
@@ -19,6 +20,37 @@ class RoomController extends Controller
         $editData = Room::find($id);
         $allRoomNo = RoomNumber::where('rooms_id',$id)->get();
         return view('backend.allRoom.rooms.edit_room', compact('editData','basic_facility','multi_imgs','allRoomNo'));
+    }
+
+    public function DeleteRoom(Request $request, $id) {
+        $room = Room::find($id);
+
+        if (file_exists('upload/room_img/' . $room->image) && !empty($room->image)) {
+            unlink('upload/room_img/' . $room->image);
+        }
+
+        $multi_image = MultiImage::where('rooms_id', $room->id)->get()->toArray();
+
+        if (!empty($multi_image)) {
+            foreach ($multi_image as $value) {
+                if (!empty($value)) {
+                    unlink('upload/room_img/multi_img/' . $value['multi_img']);
+                }
+            }
+        }
+
+        RoomType::where('id',$room->room_type_id)->delete();
+        MultiImage::where('rooms_id', $room->id)->delete();
+        Facility::where('rooms_id',$room->id)->delete();
+        RoomNumber::where('rooms_id',$room->id)->delete();
+        $room->delete();
+
+        $notification = array(
+            'message' => 'Room Deleted Successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->back()->with($notification);
     }
 
     public function UpdateRoom(Request $request, $id){
