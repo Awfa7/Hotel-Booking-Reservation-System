@@ -100,4 +100,7 @@ Route::controller(FrontendRoomController::class)->group(function(){
     Route::get('/room/details/{id}','RoomDetailsPage');
 
     Route::get('/bookings','BookingSearch')->name('booking.search');
+    Route::get('/search/room/details/{id}','SearchRoomDetails')->name('search.room.details');
+
+    Route::get('/check_room_availability','CheckRoomAvailability')->name('check.room.availability');
 });
