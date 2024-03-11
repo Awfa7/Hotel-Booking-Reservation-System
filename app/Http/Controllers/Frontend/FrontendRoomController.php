@@ -78,7 +78,7 @@ class FrontendRoomController extends Controller
         $dt_array = [];
 
         foreach($d_period as $period) {
-            array_push($dt_array, date('Y-m-d',strtotime($period)));
+            $dt_array[] = $period->format('Y-m-d');
         }
 
         $check_date_booking_ids = RoomBookedDate::whereIn('book_date', $dt_array)->distinct()->pluck('booking_id')->toArray();
@@ -91,9 +91,9 @@ class FrontendRoomController extends Controller
 
         $av_room = @$room->room_numbers_count - $total_book_room;
 
-        $toDate = Carbon::parse($request->check_in);
-        $fromDate = Carbon::parse($request->check_out);
-        $nights = $toDate->diffInDays($fromDate);
+        $fromDate = Carbon::parse($request->check_in);
+        $toDate = Carbon::parse($request->check_out);
+        $nights = $fromDate->diffInDays($toDate);
 
         return response()->json(['available_room'=>$av_room,'total_nights'=>$nights]);
     }
