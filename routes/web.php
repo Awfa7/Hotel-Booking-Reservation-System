@@ -111,5 +111,6 @@ Route::middleware(['auth'])->group(function(){
     Route::controller(BookingController::class)->group(function(){
         Route::get('/checkout','Checkout')->name('checkout');
         Route::post('/booking/store','StoreBooking')->name('store.user.booking');
+        Route::post('/checkout/store','StoreCheckout')->name('store.checkout');
     });
 });
