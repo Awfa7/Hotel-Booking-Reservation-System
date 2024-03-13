@@ -11,6 +11,8 @@ use Carbon\CarbonPeriod;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
+use Stripe\Stripe;
+use Stripe\Charge;
 
 class BookingController extends Controller
 {
@@ -71,6 +73,7 @@ class BookingController extends Controller
     }
 
     public function StoreCheckout(Request $request){
+        dd(env('STRIPE_SECRET'));
 
         $this->validate($request,[
             'name' => 'required',
@@ -95,6 +98,34 @@ class BookingController extends Controller
         
         $code = rand(000000000,999999999);
 
+
+        if($request->payment_method == 'stripe')
+        {
+            Stripe::setApiKey(env('STRIPE_SECRET'));
+            $s_pay = Charge::create([
+                "amount" => $total * 100,
+                "currency" => "EUR",
+                "source" => $request->stripeToken,
+                "description" => "Payment For Booking. Booking No " . $code,
+            ]);
+
+            if($s_pay['status'] == 'succeeded') {
+                $payment_status = 1;
+                $transaction_id = $s_pay->id;
+            } else {
+                $notification = array(
+                    'message' => 'Sorry Payment Field.',
+                    'alert-type' => 'error'
+                );
+        
+                return redirect('/')->with($notification);
+            }
+        } else {
+            $payment_status = 0;
+            $transaction_id = '';
+        }
+
+
         $data = new Booking();
         $data->rooms_id = $room->id;
         $data->user_id = Auth::user()->id;
@@ -108,8 +139,8 @@ class BookingController extends Controller
         $data->discount = $discount;
         $data->total_price = $total;
         $data->payment_method = $request->payment_method;
-        $data->transition_id = '';
-        $data->payment_status = 0;
+        $data->transition_id = $transaction_id;
+        $data->payment_status = $payment_status;
         $data->name = $request->name;
         $data->email = $request->email;
         $data->phone = $request->phone;
