@@ -92,6 +92,12 @@ Route::middleware(['auth','roles:admin'])->group(function(){
         Route::get('/room-number/delete/{id}', 'DeleteRoomNumber')->name('delete.room.number');
         Route::get('/multi-image/delete/{id}','MultiImageDelete')->name('delete.multi.image');
     });
+
+    // Booking Route
+    Route::controller(BookingController::class)->group(function(){
+        Route::get('/booking/list','BookingList')->name('booking.list');
+        Route::get('/booking/edit/{id}','EditBooking')->name('edit.booking');
+    });
 });
 
 
@@ -113,5 +119,15 @@ Route::middleware(['auth'])->group(function(){
         Route::post('/booking/store','StoreBooking')->name('store.user.booking');
         Route::post('/checkout/store','StoreCheckout')->name('store.checkout');
         Route::match(['get', 'post'],'/stripe_pay', [BookingController::class, 'stripe_pay'])->name('stripe_pay');
+
+        // Booking Update
+        Route::post('/update/booking/status/{id}','UpdateBookingStatus')->name('update.booking.status');
+        Route::post('/update/booking/{id}','UpdateBooking')->name('update.booking');
+
+        // Assign Room
+        Route::get('/assign/room/{id}','AssignRoom')->name('assign.room');
+        Route::get('/assign/room/store/{booking_id}/{room_number_id}','StoreAssignRoom')->name('store.assign.room');
+        Route::get('/assign/room/delete/{id}', 'DeleteAssignRoom')->name('delete.assign.room');
+
     });
 });
