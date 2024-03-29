@@ -14,7 +14,7 @@
                 </nav>
             </div>
             <div class="ms-auto">
-                <a href="{{ route('add.team') }}" class="btn btn-outline-primary px-5 radius-30">Add Booking</a>
+                <a href="{{ route('add.room.list') }}" class="btn btn-outline-primary px-5 radius-30">Add Booking</a>
             </div>
         </div>
         <!--end breadcrumb-->
