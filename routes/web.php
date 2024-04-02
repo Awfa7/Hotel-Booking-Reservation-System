@@ -139,5 +139,9 @@ Route::middleware(['auth'])->group(function(){
         Route::get('/assign/room/store/{booking_id}/{room_number_id}','StoreAssignRoom')->name('store.assign.room');
         Route::get('/assign/room/delete/{id}', 'DeleteAssignRoom')->name('delete.assign.room');
 
+
+        Route::get('/user/booking','UserBooking')->name('user.booking');
+        Route::get('/user/invoice/{id}','UserInvoice')->name('user.invoice');
+
     });
 });
