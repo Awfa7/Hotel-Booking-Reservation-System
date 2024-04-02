@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Mail\BookConfirm;
 use App\Models\Booking;
 use App\Models\BookingRoomList;
 use App\Models\Room;
@@ -13,6 +14,7 @@ use Carbon\Carbon;
 use Carbon\CarbonPeriod;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
 use Stripe\Stripe;
 use Stripe\Charge;
@@ -195,6 +197,19 @@ class BookingController extends Controller
         $booking->payment_status = $request->payment_status;
         $booking->status = $request->status;
         $booking->save();
+
+        // Send Email
+        $sendmail = Booking::find($id);
+
+        $data = [
+            'check_in' => $sendmail->check_in, 
+            'check_out' => $sendmail->check_out, 
+            'name' => $sendmail->name, 
+            'email' => $sendmail->email, 
+            'phone' => $sendmail->phone, 
+        ];
+
+        Mail::to($sendmail->email)->send(new BookConfirm($data));
 
         $notification = array(
             'message' => 'Information Updated Successfully',
