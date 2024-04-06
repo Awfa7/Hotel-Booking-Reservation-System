@@ -77,6 +77,8 @@
             <ul>
                 <li> <a href="{{ route('blog.category') }}"><i class='bx bx-radio-circle'></i>Blog Category</a>
                 </li>
+                <li> <a href="{{ route('all.blog.post') }}"><i class='bx bx-radio-circle'></i>All Blog Post</a>
+                </li>
             </ul>
         </li>
         <li class="menu-label">Booking Manage</li>
