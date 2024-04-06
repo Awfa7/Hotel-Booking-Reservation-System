@@ -8,7 +8,7 @@
         </div>
         <div class="toggle-icon ms-auto"><i class='bx bx-arrow-back'></i>
         </div>
-     </div>
+    </div>
     <!--navigation-->
     <ul class="metismenu" id="menu">
         <li>
@@ -68,6 +68,17 @@
                 </li>
             </ul>
         </li>
+        <li>
+            <a href="javascript:;" class="has-arrow">
+                <div class="parent-icon"><i class="bx bx-category"></i>
+                </div>
+                <div class="menu-title">Manage Blog</div>
+            </a>
+            <ul>
+                <li> <a href="{{ route('blog.category') }}"><i class='bx bx-radio-circle'></i>Blog Category</a>
+                </li>
+            </ul>
+        </li>
         <li class="menu-label">Booking Manage</li>
         <li>
             <a href="javascript:;" class="has-arrow">
@@ -91,7 +102,7 @@
             <ul>
                 <li> <a href="{{ route('room.list') }}"><i class='bx bx-radio-circle'></i>Room List</a>
                 </li>
-                
+
             </ul>
         </li>
         <li>
@@ -103,7 +114,7 @@
             <ul>
                 <li> <a href="{{ route('smtp.setting') }}"><i class='bx bx-radio-circle'></i>SMTP Setting</a>
                 </li>
-                
+
             </ul>
         </li>
         <li class="menu-label">Others</li>
