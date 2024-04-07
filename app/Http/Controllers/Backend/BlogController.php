@@ -168,4 +168,12 @@ class BlogController extends Controller
 
         return redirect()->back()->with($notification);
     }
+
+    public function BlogDetails($slug) {
+        $blog = BlogPost::where('post_slug',$slug)->first();
+        $bCategories = BlogCategory::latest()->get();
+        $lPosts = BlogPost::latest()->limit(3)->get();
+
+        return view('frontend.blog.blog_details',compact('blog','bCategories','lPosts'));
+    }
 } 
