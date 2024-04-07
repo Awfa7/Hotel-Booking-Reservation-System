@@ -178,7 +178,7 @@ class BlogController extends Controller
     }
 
     public function BlogCategoryList($id) {
-        $posts = BlogPost::where('blog_category_id',$id)->get();
+        $posts = BlogPost::where('blog_category_id',$id)->paginate(3);
         $Category_name = BlogCategory::where('id',$id)->first();
         $bCategories = BlogCategory::latest()->get();
         $lPosts = BlogPost::latest()->limit(3)->get();
@@ -187,7 +187,7 @@ class BlogController extends Controller
     }
 
     public function BlogPostList(){
-        $posts = BlogPost::latest()->get();
+        $posts = BlogPost::latest()->paginate(3);
         $bCategories = BlogCategory::latest()->get();
         $lPosts = BlogPost::latest()->limit(3)->get();
 
