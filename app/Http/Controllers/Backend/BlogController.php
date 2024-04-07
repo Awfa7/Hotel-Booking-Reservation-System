@@ -176,4 +176,21 @@ class BlogController extends Controller
 
         return view('frontend.blog.blog_details',compact('blog','bCategories','lPosts'));
     }
+
+    public function BlogCategoryList($id) {
+        $posts = BlogPost::where('blog_category_id',$id)->get();
+        $Category_name = BlogCategory::where('id',$id)->first();
+        $bCategories = BlogCategory::latest()->get();
+        $lPosts = BlogPost::latest()->limit(3)->get();
+
+        return view('frontend.blog.blog_category_list',compact('posts','bCategories','lPosts','Category_name'));
+    }
+
+    public function BlogPostList(){
+        $posts = BlogPost::latest()->get();
+        $bCategories = BlogCategory::latest()->get();
+        $lPosts = BlogPost::latest()->limit(3)->get();
+
+        return view('frontend.blog.blog_posts',compact('posts','bCategories','lPosts'));
+    }
 } 

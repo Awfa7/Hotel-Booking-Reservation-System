@@ -188,4 +188,6 @@ Route::middleware(['auth'])->group(function(){
 // Frontend Blog Route
 Route::controller(BlogController::class)->group(function(){
     Route::get('/blog/details/{slug}','BlogDetails');
+    Route::get('/blog/category/list/{id}','BlogCategoryList');
+    Route::get('/blog/post/list','BlogPostList')->name('blog.post.list');
 });

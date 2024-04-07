@@ -141,7 +141,7 @@
                                 <ul>
                                     @foreach ($bCategories as $bCategory)
                                         <li>
-                                            <a href="#">{{ $bCategory->category_name }}</a>
+                                            <a href="{{ url('blog/category/list/' . $bCategory->id) }}">{{ $bCategory->category_name }}</a>
                                         </li>
                                     @endforeach
                                 </ul>
@@ -154,7 +154,7 @@
                                 @foreach ($lPosts as $lPost)
                                     <article class="item">
                                         <a href="{{ url('blog/details/' . $lPost->post_slug) }}" class="thumb">
-                                            <img src="{{ asset($blog->post_image) }}" alt="Images" style="width: 80px; height: 80px;">
+                                            <img src="{{ asset($lPost->post_image) }}" alt="Images" style="width: 80px; height: 80px;">
                                         </a>
                                         <div class="info">
                                             <h4 class="title-text">
