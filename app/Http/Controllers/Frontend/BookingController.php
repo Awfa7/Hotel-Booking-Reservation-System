@@ -78,7 +78,6 @@ class BookingController extends Controller
     }
 
     public function StoreCheckout(Request $request){
-        dd(env('STRIPE_SECRET'));
 
         $this->validate($request,[
             'name' => 'required',
