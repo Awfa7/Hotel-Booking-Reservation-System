@@ -24,4 +24,23 @@ class CommentController extends Controller
 
         return redirect()->back()->with($notification);
     }
+
+    public function AllComment() {
+        $comments = Comment::latest()->get();
+
+        return view('backend.comment.all_comment',compact('comments'));
+    }
+
+    public function UpdateCommentStatus(Request $request){
+        $commentId = $request->input('comment_id');
+        $isChecked = $request->input('is_checked', 0);
+
+        $comment = Comment::find($commentId);
+        if ($comment) {
+            $comment->status = $isChecked;
+            $comment->save();
+        }
+
+        return response()->json(['message' => 'Comment Status Updated Successfully']);
+    }
 }
