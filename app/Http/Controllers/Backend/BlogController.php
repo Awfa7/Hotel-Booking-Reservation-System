@@ -5,6 +5,7 @@ namespace App\Http\Controllers\backend;
 use App\Http\Controllers\Controller;
 use App\Models\BlogCategory;
 use App\Models\BlogPost;
+use App\Models\Comment;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -171,10 +172,11 @@ class BlogController extends Controller
 
     public function BlogDetails($slug) {
         $blog = BlogPost::where('post_slug',$slug)->first();
+        $comments = Comment::where('post_id',$blog->id)->where('status',1)->limit(5)->get();
         $bCategories = BlogCategory::latest()->get();
         $lPosts = BlogPost::latest()->limit(3)->get();
 
-        return view('frontend.blog.blog_details',compact('blog','bCategories','lPosts'));
+        return view('frontend.blog.blog_details',compact('blog','comments','bCategories','lPosts'));
     }
 
     public function BlogCategoryList($id) {

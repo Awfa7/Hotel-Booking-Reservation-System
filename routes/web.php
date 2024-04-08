@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\backend\BlogController;
 use App\Http\Controllers\Backend\BookAreaController;
+use App\Http\Controllers\backend\CommentController;
 use App\Http\Controllers\Backend\RoomController;
 use App\Http\Controllers\Backend\RoomListController;
 use App\Http\Controllers\Backend\RoomTypeController;
@@ -190,4 +191,9 @@ Route::controller(BlogController::class)->group(function(){
     Route::get('/blog/details/{slug}','BlogDetails');
     Route::get('/blog/category/list/{id}','BlogCategoryList');
     Route::get('/blog/post/list','BlogPostList')->name('blog.post.list');
+});
+
+// Frontend Comment Route
+Route::controller(CommentController::class)->group(function(){
+    Route::post('/comment/store','StoreComment')->name('store.comment');
 });
