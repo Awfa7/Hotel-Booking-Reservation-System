@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\backend\BlogController;
 use App\Http\Controllers\Backend\BookAreaController;
 use App\Http\Controllers\backend\CommentController;
+use App\Http\Controllers\backend\GalleryController;
 use App\Http\Controllers\backend\ReportController;
 use App\Http\Controllers\Backend\RoomController;
 use App\Http\Controllers\Backend\RoomListController;
@@ -152,6 +153,18 @@ Route::middleware(['auth','roles:admin'])->group(function(){
         Route::get('/blog/post/edit/{id}','EditBlogPost')->name('edit.blog.post');
         Route::post('/blog/post/update','UpdateBlogPost')->name('update.blog.post');
         Route::get('/blog/post/delete/{id}','DeleteBlogPost')->name('delete.blog.post');
+    });
+
+    // Gallery Photo Route
+    Route::controller(GalleryController::class)->group(function(){
+        Route::get('/gallery/photo/all','AllGalleryPhoto')->name('all.gallery.photo');
+        Route::get('/gallery/photo/add','AddGalleryPhoto')->name('add.gallery.photo');
+        Route::post('/gallery/photo/store','StoreGalleryPhoto')->name('store.gallery.photo');
+        Route::get('/gallery/photo/edit/{id}', 'EditGalleryPhoto')->name('edit.gallery.photo');
+        Route::post('/gallery/photo/update', 'UpdateGalleryPhoto')->name('update.gallery.photo');
+        Route::get('/gallery/photo/delete/{id}', 'DeleteGalleryPhoto')->name('delete.gallery.photo');
+
+        Route::post('/gallery/photo/multiple-delete/', 'DeleteMultipleGalleryPhoto')->name('delete.multiple.gallery.photo');
     });
 
     // Comment Post Route
