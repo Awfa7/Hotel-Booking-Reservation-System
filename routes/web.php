@@ -164,7 +164,7 @@ Route::middleware(['auth','roles:admin'])->group(function(){
         Route::post('/gallery/photo/update', 'UpdateGalleryPhoto')->name('update.gallery.photo');
         Route::get('/gallery/photo/delete/{id}', 'DeleteGalleryPhoto')->name('delete.gallery.photo');
 
-        Route::post('/gallery/photo/multiple-delete/', 'DeleteMultipleGalleryPhoto')->name('delete.multiple.gallery.photo');
+        Route::post('/gallery/photo/multiple-delete', 'DeleteMultipleGalleryPhoto')->name('delete.multiple.gallery.photo');
     });
 
     // Comment Post Route
@@ -227,4 +227,9 @@ Route::controller(BlogController::class)->group(function(){
 // Frontend Comment Route
 Route::controller(CommentController::class)->group(function(){
     Route::post('/comment/store','StoreComment')->name('store.comment');
+});
+
+/// Frontend Gallery Route 
+Route::controller(GalleryController::class)->group(function(){
+    Route::get('/gallery/photo/show', 'ShowGalleryPhoto')->name('show.gallery.photo');
 });
