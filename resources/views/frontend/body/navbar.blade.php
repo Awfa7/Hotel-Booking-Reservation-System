@@ -70,8 +70,8 @@
                         </li>
 
                         <li class="nav-item">
-                            <a href="contact.html" class="nav-link">
-                                Contact
+                            <a href="{{ route('show.contact.us') }}" class="nav-link">
+                                Contact Us
                             </a>
                         </li>
 

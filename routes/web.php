@@ -13,6 +13,7 @@ use App\Http\Controllers\Backend\SettingController;
 use App\Http\Controllers\Backend\TeamController;
 use App\Http\Controllers\Backend\TestimonialController;
 use App\Http\Controllers\Frontend\BookingController;
+use App\Http\Controllers\frontend\ContactUsController;
 use App\Http\Controllers\Frontend\FrontendRoomController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -167,6 +168,11 @@ Route::middleware(['auth','roles:admin'])->group(function(){
         Route::post('/gallery/photo/multiple-delete', 'DeleteMultipleGalleryPhoto')->name('delete.multiple.gallery.photo');
     });
 
+    Route::controller(ContactUsController::class)->group(function(){
+        // contact message admin view
+        Route::get('/admin/contact/message', 'AdminContactMessage')->name('admin.contact.message');
+    });
+
     // Comment Post Route
     Route::controller(CommentController::class)->group(function(){
         Route::get('/comment/all','AllComment')->name('all.comment.post');
@@ -233,3 +239,10 @@ Route::controller(CommentController::class)->group(function(){
 Route::controller(GalleryController::class)->group(function(){
     Route::get('/gallery/photo/show', 'ShowGalleryPhoto')->name('show.gallery.photo');
 });
+
+/// Contact Us Route 
+Route::controller(ContactUsController::class)->group(function(){
+    Route::get('/contact/us/show', 'ShowContactUs')->name('show.contact.us');
+    Route::post('/contact/us/store', 'StoreContactUs')->name('store.contact.us');
+});
+

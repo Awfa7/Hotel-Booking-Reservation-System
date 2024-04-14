@@ -96,6 +96,18 @@
                 </li>
             </ul>
         </li>
+        <li>
+            <a class="has-arrow" href="javascript:;">
+                <div class="parent-icon"><i class='bx bx-bookmark-heart'></i>
+                </div>
+                <div class="menu-title">Contact Us</div>
+            </a>
+            <ul>
+                <li> <a href="{{ route('admin.contact.message') }}"><i class='bx bx-radio-circle'></i>Contact Us Messages </a>
+                </li> 
+
+            </ul>
+        </li>
         <li class="menu-label">Booking Manage</li>
         <li>
             <a href="javascript:;" class="has-arrow">
