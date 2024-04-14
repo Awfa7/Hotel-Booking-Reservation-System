@@ -16,6 +16,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
+use App\Models\User;
+use App\Notifications\BookingComplete;
+use Illuminate\Support\Facades\Notification;
 use Stripe\Stripe;
 use Stripe\Charge;
 
@@ -78,6 +81,8 @@ class BookingController extends Controller
     }
 
     public function StoreCheckout(Request $request){
+
+        $user = User::where('role','admin')->get();
 
         $this->validate($request,[
             'name' => 'required',
@@ -177,8 +182,23 @@ class BookingController extends Controller
             'alert-type' => 'success'
         );
 
+        Notification::send($user, new BookingComplete($request->name));
+
 
         return redirect('/')->with($notification);
+    }
+
+    public function MarkAsRead(Request $request , $notificationId){
+
+        $user = Auth::user();
+        $notification = $user->notifications()->where('id',$notificationId)->first();
+
+        if ($notification) {
+            $notification->markAsRead();
+        }
+
+        return response()->json(['count' => $user->unreadNotifications()->count()]);
+
     }
 
     public function BookingList() {
