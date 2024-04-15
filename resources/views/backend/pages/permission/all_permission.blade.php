@@ -14,7 +14,16 @@
                 </nav>
             </div>
             <div class="ms-auto">
-                <a href="{{ route('add.permission') }}" class="btn btn-outline-primary px-5 radius-30">Add Permission</a>
+                <div class="btn-group">
+                    <a href="{{ route('add.permission') }}" class="btn btn-outline-primary px-5 radius-30">Add
+                        Permission</a>
+                </div>
+                <div class="btn-group">
+                    <a href="{{ route('import.permission.page') }}" class="btn btn-outline-warning px-5 radius-30">Import</a>
+                </div>
+                <div class="btn-group">
+                    <a href="{{ route('export.permission') }}" class="btn btn-outline-danger px-5 radius-30">Export</a>
+                </div>
             </div>
         </div>
         <!--end breadcrumb-->
