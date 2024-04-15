@@ -103,8 +103,9 @@
                 <div class="menu-title">Contact Us</div>
             </a>
             <ul>
-                <li> <a href="{{ route('admin.contact.message') }}"><i class='bx bx-radio-circle'></i>Contact Us Messages </a>
-                </li> 
+                <li> <a href="{{ route('admin.contact.message') }}"><i class='bx bx-radio-circle'></i>Contact Us
+                        Messages </a>
+                </li>
 
             </ul>
         </li>
@@ -145,11 +146,25 @@
 
             </ul>
         </li>
+
+        <li class="menu-label">Manage Setting</li>
+
         <li>
             <a class="has-arrow" href="javascript:;">
                 <div class="parent-icon"><i class='bx bx-bookmark-heart'></i>
                 </div>
-                <div class="menu-title">Manage Setting</div>
+                <div class="menu-title">Role & Permisssion</div>
+            </a>
+            <ul>
+                <li> <a href="{{ route('all.permission') }}"><i class='bx bx-radio-circle'></i>All Permisssion</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a class="has-arrow" href="javascript:;">
+                <div class="parent-icon"><i class='bx bx-bookmark-heart'></i>
+                </div>
+                <div class="menu-title">Setting</div>
             </a>
             <ul>
                 <li> <a href="{{ route('smtp.setting') }}"><i class='bx bx-radio-circle'></i>SMTP Setting</a>

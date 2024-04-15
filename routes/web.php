@@ -6,6 +6,7 @@ use App\Http\Controllers\Backend\BookAreaController;
 use App\Http\Controllers\backend\CommentController;
 use App\Http\Controllers\backend\GalleryController;
 use App\Http\Controllers\backend\ReportController;
+use App\Http\Controllers\Backend\RoleController;
 use App\Http\Controllers\Backend\RoomController;
 use App\Http\Controllers\Backend\RoomListController;
 use App\Http\Controllers\Backend\RoomTypeController;
@@ -183,6 +184,17 @@ Route::middleware(['auth','roles:admin'])->group(function(){
     Route::controller(ReportController::class)->group(function(){
         Route::get('/booking/report','BookingReport')->name('booking.report');
         Route::post('/booking/report/search','SearchBookingReport')->name('search.booking.report'); // By Date
+    });
+
+
+    // Role Route
+    Route::controller(RoleController::class)->group(function(){
+        Route::get('/permission/all','AllPermission')->name('all.permission');
+        Route::get('/permission/add','AddPermission')->name('add.permission');
+        Route::post('/permission/store', 'StorePermission')->name('store.permission');
+        Route::get('/permission/edit/{id}', 'EditPermission')->name('edit.permission');
+        Route::post('/permission/update', 'UpdatePermission')->name('update.permission');
+        Route::get('/permission/delete/{id}', 'DeletePermission')->name('delete.permission');
     });
 });
 
