@@ -13,6 +13,7 @@ use App\Http\Controllers\Backend\RoomTypeController;
 use App\Http\Controllers\Backend\SettingController;
 use App\Http\Controllers\Backend\TeamController;
 use App\Http\Controllers\Backend\TestimonialController;
+use App\Http\Controllers\Frontend\AboutUsController;
 use App\Http\Controllers\Frontend\BookingController;
 use App\Http\Controllers\frontend\ContactUsController;
 use App\Http\Controllers\Frontend\FrontendRoomController;
@@ -290,6 +291,11 @@ Route::controller(GalleryController::class)->group(function(){
 Route::controller(ContactUsController::class)->group(function(){
     Route::get('/contact/us/show', 'ShowContactUs')->name('show.contact.us');
     Route::post('/contact/us/store', 'StoreContactUs')->name('store.contact.us');
+});
+
+/// About Us Route 
+Route::controller(AboutUsController::class)->group(function(){
+    Route::get('/about/us/show', 'ShowAboutUs')->name('show.about.us');
 });
 
 

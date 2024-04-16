@@ -5,7 +5,7 @@
 <div class="navbar-area">
     <!-- Menu For Mobile Device -->
     <div class="mobile-nav">
-        <a href="index.html" class="logo">
+        <a href="{{ url('/') }}" class="logo">
             <img src="{{ asset($setting->logo) }}" class="logo-one" alt="Logo">
             <img src="{{ asset($setting->logo) }}" class="logo-two" alt="Logo">
         </a>
@@ -15,7 +15,7 @@
     <div class="main-nav">
         <div class="container">
             <nav class="navbar navbar-expand-md navbar-light ">
-                <a class="navbar-brand" href="index.html">
+                <a class="navbar-brand" href="{{ url('/') }}">
                     <img src="{{ asset($setting->logo) }}" class="logo-one" alt="Logo">
                     <img src="{{ asset($setting->logo) }}" class="logo-two"
                         alt="Logo">
@@ -24,27 +24,22 @@
                 <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
                     <ul class="navbar-nav m-auto">
                         <li class="nav-item">
-                            <a href="{{ url('/') }}" class="nav-link active">
+                            <a href="{{ url('/') }}" class="nav-link @if (Request::is('/')) active @endif">
                                 Home
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="about.html" class="nav-link">
+                            <a href="{{ route('show.about.us') }}" class="nav-link @if (Request::is('about/us/show')) active @endif">
                                 About
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                Restaurant
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('show.gallery.photo') }}" class="nav-link">
+                            <a href="{{ route('show.gallery.photo') }}" class="nav-link @if (Request::is('gallery/photo/show')) active @endif">
                                 Gallery
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('blog.post.list') }}" class="nav-link">
+                            <a href="{{ route('blog.post.list') }}" class="nav-link @if (Request::is('blog/post/list')) active @endif">
                                 Blog
                             </a>
                         </li>
@@ -54,14 +49,14 @@
                         @endphp
 
                         <li class="nav-item">
-                            <a href="{{ route('fRoom.all') }}" class="nav-link">
+                            <a href="{{ route('fRoom.all') }}" class="nav-link @if (Request::is('rooms')) active @endif">
                                 All Rooms
                                 <i class='bx bx-chevron-down'></i>
                             </a>
                             <ul class="dropdown-menu">
                                 @foreach ($rooms as $room)
                                     <li class="nav-item">
-                                        <a href="{{ url('room/details/' . $room->id) }}" class="nav-link">
+                                        <a href="{{ url('room/details/' . $room->id) }}" class="nav-link @if (Request::is('room/details/' . $room->id)) active @endif">
                                             {{ $room['type']['name'] }}
                                         </a>
                                     </li>
@@ -70,19 +65,13 @@
                         </li>
 
                         <li class="nav-item">
-                            <a href="{{ route('show.contact.us') }}" class="nav-link">
+                            <a href="{{ route('show.contact.us') }}" class="nav-link @if (Request::is('contact/us/show')) active @endif">
                                 Contact Us
                             </a>
                         </li>
 
-                        <li class="nav-item-btn">
-                            <a href="#" class="default-btn btn-bg-one border-radius-5">Book Now</a>
-                        </li>
+                        
                     </ul>
-
-                    <div class="nav-btn">
-                        <a href="#" class="default-btn btn-bg-one border-radius-5">Book Now</a>
-                    </div>
                 </div>
             </nav>
         </div>
