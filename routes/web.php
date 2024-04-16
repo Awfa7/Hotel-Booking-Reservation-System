@@ -128,6 +128,16 @@ Route::middleware(['auth','roles:admin'])->group(function(){
         Route::post('/site/update','SiteUpdate')->name('site.update');
     });
 
+    // Admin Route
+    Route::controller(AdminController::class)->group(function(){
+        Route::get('/admin/user/all','AllAdminUser')->name('all.admin.user');
+        Route::get('/admin/user/add','AddAdminUser')->name('add.admin.user');
+        Route::post('/admin/user/store','StoreAdminUser')->name('store.admin.user');
+        Route::get('/admin/edit/{id}', 'EditAdminUser')->name('edit.admin.user');
+        Route::post('/admin/update/{id}', 'UpdateAdminUser')->name('update.admin.user');
+        Route::get('/admin/delete/{id}', 'DeleteAdminUser')->name('delete.admin.user');
+    });
+
     // Testimonial Route
     Route::controller(TestimonialController::class)->group(function(){
         Route::get('/testimonial/all','AllTestimonial')->name('all.testimonial');
