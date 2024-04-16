@@ -18,30 +18,41 @@
                 <div class="menu-title">Dashboard</div>
             </a>
         </li>
-        <li>
-            <a href="javascript:;" class="has-arrow">
-                <div class="parent-icon"><i class="bx bx-category"></i>
-                </div>
-                <div class="menu-title">Manage Teams</div>
-            </a>
-            <ul>
-                <li> <a href="{{ route('all.team') }}"><i class='bx bx-radio-circle'></i>All Team</a>
-                </li>
-                <li> <a href="{{ route('add.team') }}"><i class='bx bx-radio-circle'></i>Add Team Member</a>
-                </li>
-            </ul>
-        </li>
-        <li>
-            <a href="javascript:;" class="has-arrow">
-                <div class="parent-icon"><i class="bx bx-category"></i>
-                </div>
-                <div class="menu-title">Manage Book Area</div>
-            </a>
-            <ul>
-                <li> <a href="{{ route('edit.book.area') }}"><i class='bx bx-radio-circle'></i>Edit Book Area</a>
-                </li>
-            </ul>
-        </li>
+        @if (Auth::user()->can('team.menu'))
+            <li>
+                <a href="javascript:;" class="has-arrow">
+                    <div class="parent-icon"><i class="bx bx-category"></i>
+                    </div>
+                    <div class="menu-title">Manage Teams</div>
+                </a>
+                <ul>
+                    @if (Auth::user()->can('team.all'))
+                        <li> <a href="{{ route('all.team') }}"><i class='bx bx-radio-circle'></i>All Team</a>
+                        </li>
+                    @endif
+                    @if (Auth::user()->can('team.add'))
+                        <li> <a href="{{ route('add.team') }}"><i class='bx bx-radio-circle'></i>Add Team Member</a>
+                        </li>
+                    @endif
+                </ul>
+            </li>
+        @endif
+        @if (Auth::user()->can('bookarea.menu'))
+            <li>
+                <a href="javascript:;" class="has-arrow">
+                    <div class="parent-icon"><i class="bx bx-category"></i>
+                    </div>
+                    <div class="menu-title">Manage Book Area</div>
+                </a>
+                <ul>
+                    @if (Auth::user()->can('update.bookarea'))
+                        <li> <a href="{{ route('edit.book.area') }}"><i class='bx bx-radio-circle'></i>Edit Book
+                                Area</a>
+                        </li>
+                    @endif
+                </ul>
+            </li>
+        @endif
         <li>
             <a href="javascript:;" class="has-arrow">
                 <div class="parent-icon"><i class="bx bx-category"></i>
@@ -161,10 +172,12 @@
                 <li> <a href="{{ route('all.role') }}"><i class='bx bx-radio-circle'></i>All Roles</a>
                 </li>
 
-                <li> <a href="{{ route('add.role.permission') }}"><i class='bx bx-radio-circle'></i>Add Roles In Permission</a>
+                <li> <a href="{{ route('add.role.permission') }}"><i class='bx bx-radio-circle'></i>Add Roles In
+                        Permission</a>
                 </li>
 
-                <li> <a href="{{ route('all.role.permission') }}"><i class='bx bx-radio-circle'></i>All Roles In Permission</a>
+                <li> <a href="{{ route('all.role.permission') }}"><i class='bx bx-radio-circle'></i>All Roles In
+                        Permission</a>
                 </li>
             </ul>
         </li>
