@@ -45,7 +45,7 @@
                     <div class="menu-title">Manage Book Area</div>
                 </a>
                 <ul>
-                    @if (Auth::user()->can('update.bookarea'))
+                    @if (Auth::user()->can('bookarea.update'))
                         <li> <a href="{{ route('edit.book.area') }}"><i class='bx bx-radio-circle'></i>Edit Book
                                 Area</a>
                         </li>

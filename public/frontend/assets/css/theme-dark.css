@@ -60,12 +60,12 @@
 
 .switch-box input:checked + .slider {
   background-color: transparent;
-  border: 1.5px solid #EE786C;
+  border: 1.5px solid #0096c7;
 }
 
 .switch-box input:focus + .slider {
-  -webkit-box-shadow: 0 0 1px #EE786C;
-          box-shadow: 0 0 1px #EE786C;
+  -webkit-box-shadow: 0 0 1px #0096c7;
+          box-shadow: 0 0 1px #0096c7;
 }
 
 .switch-box input:checked + .slider:before {
@@ -140,7 +140,7 @@
 }
 
 .theme-dark .main-nav nav .navbar-nav .nav-item a:hover {
-  color: #EE786C;
+  color: #0096c7;
 }
 
 .theme-dark .main-nav nav .navbar-nav .nav-item .dropdown-menu {
@@ -152,11 +152,11 @@
 }
 
 .theme-dark .main-nav nav .navbar-nav .nav-item .dropdown-menu li a.active {
-  color: #EE786C !important;
+  color: #0096c7 !important;
 }
 
 .theme-dark .main-nav nav .navbar-nav .nav-item .dropdown-menu li a:hover {
-  color: #EE786C !important;
+  color: #0096c7 !important;
 }
 
 .theme-dark .mobile-nav .logo .logo-two {
@@ -261,11 +261,11 @@
 
 .theme-dark .option-item .language-nav-list .nice-select .list .option:hover {
   background-color: transparent !important;
-  color: #B56952;
+  color: #0077b6;
 }
 
 .theme-dark .option-item .language-nav-list .nice-select .list .option .selected {
-  color: #B56952 !important;
+  color: #0077b6 !important;
 }
 
 .theme-dark .option-item .language-nav-list .nice-select:after {
@@ -284,7 +284,7 @@
 }
 
 .theme-dark .side-nav-responsive .dot-menu:hover .circle-inner .circle {
-  background-color: #EE786C;
+  background-color: #0096c7;
 }
 
 .theme-dark .side-nav-responsive .side-nav-inner .side-nav {
@@ -327,7 +327,7 @@
 }
 
 .theme-dark .side-nav-responsive .side-nav-inner .side-nav .option-item .menu-icon .menu-icon-one:hover {
-  color: #B56952;
+  color: #0077b6;
 }
 
 .theme-dark .banner-area::before {
@@ -396,22 +396,22 @@
 }
 
 .theme-dark .choose-card::before {
-  background-color: #EE786C;
+  background-color: #0096c7;
 }
 
 .theme-dark .choose-card:hover .read-btn {
   border-color: #ffffff;
-  background-color: #EE786C;
+  background-color: #0096c7;
 }
 
 .theme-dark .choose-card .read-btn {
   color: #ffffff;
-  border: 1px solid #EE786C;
+  border: 1px solid #0096c7;
 }
 
 .theme-dark .choose-card .read-btn:hover {
   color: #ffffff;
-  background-color: #EE786C;
+  background-color: #0096c7;
   border-color: #ffffff;
 }
 
@@ -470,11 +470,11 @@
 
 .theme-dark .services-bar-widget .side-bar-categories ul li {
   background-color: #252525;
-  border: 1px solid #ee786c7a;
+  border: 1px solid #0096c77a;
 }
 
 .theme-dark .services-bar-widget .side-bar-categories ul li:hover {
-  background-color: #EE786C;
+  background-color: #0096c7;
 }
 
 .theme-dark .services-bar-widget .side-bar-categories ul li a {
@@ -487,11 +487,11 @@
 
 .theme-dark .services-bar-widget .side-bar-list ul li {
   background-color: #252525;
-  border: 1px solid #ee786c7a;
+  border: 1px solid #0096c77a;
 }
 
 .theme-dark .services-bar-widget .side-bar-list ul li:hover {
-  background-color: #EE786C;
+  background-color: #0096c7;
 }
 
 .theme-dark .services-bar-widget .side-bar-list ul li a {
@@ -536,11 +536,11 @@
 }
 
 .theme-dark .specialty-list .specialty-list-card::before {
-  background-color: #B56952;
+  background-color: #0077b6;
 }
 
 .theme-dark .room-card {
-  background-color: #1d1d1d;
+  background-color: #252525;
   -webkit-box-shadow: none;
           box-shadow: none;
 }
@@ -625,7 +625,7 @@
 }
 
 .theme-dark .side-bar-form .nice-select {
-  background-color: #B56952;
+  background-color: #0077b6;
   color: #ffffff;
 }
 
@@ -638,7 +638,7 @@
 }
 
 .theme-dark .side-bar-form .nice-select .list .option:hover {
-  background-color: #B56952 !important;
+  background-color: #0077b6 !important;
   color: #ffffff;
 }
 
@@ -657,8 +657,8 @@
 }
 
 .theme-dark .side-bar-plan ul li:hover {
-  background-color: #EE786C;
-  border-color: #EE786C;
+  background-color: #0096c7;
+  border-color: #0096c7;
 }
 
 .theme-dark .side-bar-plan ul li a {
@@ -769,17 +769,17 @@
 
 .theme-dark .reservation-tab .tabs li a:focus {
   color: #ffffff;
-  background-color: #EE786C;
+  background-color: #0096c7;
 }
 
 .theme-dark .reservation-tab .tabs li.active a {
   color: #ffffff;
-  background-color: #EE786C;
+  background-color: #0096c7;
 }
 
 .theme-dark .reservation-tab .tabs li.current a {
   color: #ffffff;
-  background-color: #EE786C;
+  background-color: #0096c7;
 }
 
 .theme-dark .gallery-tab .tabs li {
@@ -792,17 +792,17 @@
 
 .theme-dark .gallery-tab .tabs li a:focus {
   color: #ffffff;
-  background-color: #EE786C;
+  background-color: #0096c7;
 }
 
 .theme-dark .gallery-tab .tabs li.active a {
   color: #ffffff;
-  background-color: #EE786C;
+  background-color: #0096c7;
 }
 
 .theme-dark .gallery-tab .tabs li.current a {
   color: #ffffff;
-  background-color: #EE786C;
+  background-color: #0096c7;
 }
 
 .theme-dark .reservation-widget-content {
@@ -847,17 +847,17 @@
 
 .theme-dark .billing-details .form-group .option:hover {
   color: #ffffff;
-  background-color: #EE786C;
+  background-color: #0096c7;
 }
 
 .theme-dark .billing-details .form-group .option.focus {
   color: #ffffff;
-  background-color: #EE786C;
+  background-color: #0096c7;
 }
 
 .theme-dark .billing-details .form-group .option.selected.focus {
   color: #ffffff;
-  background-color: #EE786C;
+  background-color: #0096c7;
 }
 
 .theme-dark .billing-details .form-check .form-check-label {
@@ -869,7 +869,7 @@
 }
 
 .theme-dark .payment-box .payment-method p [type="radio"]:checked + label {
-  color: #EE786C;
+  color: #0096c7;
 }
 
 .theme-dark .payment-box .payment-method p [type="radio"]:not(:checked) {
@@ -969,7 +969,7 @@
 }
 
 .theme-dark .side-bar-widget .widget-popular-post .item .info .title-text a:hover {
-  color: #EE786C;
+  color: #0096c7;
 }
 
 .theme-dark .side-bar-widget .side-bar-widget-tag li {
@@ -980,7 +980,7 @@
 }
 
 .theme-dark .side-bar-widget .side-bar-widget-tag li:hover {
-  background-color: #EE786C;
+  background-color: #0096c7;
 }
 
 .theme-dark .side-bar-widget .side-bar-widget-tag li a {
@@ -1029,7 +1029,7 @@
 }
 
 .theme-dark .contact-item ul li .content span a:hover {
-  color: #EE786C;
+  color: #0096c7;
 }
 
 .theme-dark .user-all-form .contact-form .agree-label label {

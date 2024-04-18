@@ -1,6 +1,7 @@
 @extends('admin.admin_dashboard')
 @section('admin')
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://cdn.ckeditor.com/ckeditor5/41.2.1/classic/ckeditor.js"></script>
 
 
 
@@ -146,7 +147,7 @@
 
                                                     <div class="col-md-12">
                                                         <label for="input11" class="form-label">Description</label>
-                                                        <textarea name="description" class="form-control" id="myeditorinstance">{!! $editData->description !!}</textarea>
+                                                        <textarea name="description" class="form-control" id="myeditor">{!! $editData->description !!}</textarea>
                                                     </div>
 
                                                     <div class="row mt-2">
@@ -483,4 +484,19 @@
     </script>
 
     <!--========== End Room Number Add ==============-->
+
+    <style>
+        .ck-editor__editable[role="textbox"] {
+                /* Editing area */
+                min-height: 200px;
+            }
+    </style>
+
+    <script>
+        ClassicEditor
+            .create( document.querySelector( '#myeditor' ) )
+            .catch( error => {
+                console.error( error );
+            } );
+    </script>
 @endsection
