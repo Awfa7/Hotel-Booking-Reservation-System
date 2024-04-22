@@ -53,7 +53,7 @@ class FrontendRoomController extends Controller
 
         $check_date_booking_ids = RoomBookedDate::whereIn('book_date', $dt_array)->distinct()->pluck('booking_id')->toArray();
 
-        $rooms = Room::withCount('room_numbers')->where('status',1)->get();
+        $rooms = Room::withCount('room_numbers')->where('status',1)->paginate(3);
 
         return view('frontend.room.search_room',compact('rooms','check_date_booking_ids'));
     }

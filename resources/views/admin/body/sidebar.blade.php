@@ -21,7 +21,7 @@
         @if (Auth::user()->can('team.menu'))
             <li>
                 <a href="javascript:;" class="has-arrow">
-                    <div class="parent-icon"><i class="bx bx-category"></i>
+                    <div class="parent-icon"><i class="lni lni-users"></i>
                     </div>
                     <div class="menu-title">Manage Teams</div>
                 </a>
@@ -40,7 +40,7 @@
         @if (Auth::user()->can('bookarea.menu'))
             <li>
                 <a href="javascript:;" class="has-arrow">
-                    <div class="parent-icon"><i class="bx bx-category"></i>
+                    <div class="parent-icon"><i class="lni lni-list"></i>
                     </div>
                     <div class="menu-title">Manage Book Area</div>
                 </a>
@@ -55,20 +55,7 @@
         @endif
         <li>
             <a href="javascript:;" class="has-arrow">
-                <div class="parent-icon"><i class="bx bx-category"></i>
-                </div>
-                <div class="menu-title">Manage Room Type</div>
-            </a>
-            <ul>
-                <li> <a href="{{ route('list.room.type') }}"><i class='bx bx-radio-circle'></i>List Room Type</a>
-                </li>
-                <li> <a href="{{ route('add.room.type') }}"><i class='bx bx-radio-circle'></i>Add Room Type</a>
-                </li>
-            </ul>
-        </li>
-        <li>
-            <a href="javascript:;" class="has-arrow">
-                <div class="parent-icon"><i class="bx bx-category"></i>
+                <div class="parent-icon"><i class="lni lni-list"></i>
                 </div>
                 <div class="menu-title">Manage Testimonial</div>
             </a>
@@ -81,7 +68,7 @@
         </li>
         <li>
             <a href="javascript:;" class="has-arrow">
-                <div class="parent-icon"><i class="bx bx-category"></i>
+                <div class="parent-icon"><i class="lni lni-list"></i>
                 </div>
                 <div class="menu-title">Manage Blog</div>
             </a>
@@ -96,7 +83,7 @@
         </li>
         <li>
             <a href="javascript:;" class="has-arrow">
-                <div class="parent-icon"><i class="bx bx-category"></i>
+                <div class="parent-icon"><i class="lni lni-gallery"></i>
                 </div>
                 <div class="menu-title">Manage Gallery</div>
             </a>
@@ -109,7 +96,7 @@
         </li>
         <li>
             <a class="has-arrow" href="javascript:;">
-                <div class="parent-icon"><i class='bx bx-bookmark-heart'></i>
+                <div class="parent-icon"><i class='bx bx-support'></i>
                 </div>
                 <div class="menu-title">Contact Us</div>
             </a>
@@ -123,7 +110,7 @@
         <li class="menu-label">Booking Manage</li>
         <li>
             <a href="javascript:;" class="has-arrow">
-                <div class="parent-icon"><i class='bx bx-cart'></i>
+                <div class="parent-icon"><i class='lni lni-list'></i>
                 </div>
                 <div class="menu-title">Booking</div>
             </a>
@@ -136,7 +123,7 @@
         </li>
         <li>
             <a href="javascript:;" class="has-arrow">
-                <div class="parent-icon"><i class='bx bx-cart'></i>
+                <div class="parent-icon"><i class='lni lni-list'></i>
                 </div>
                 <div class="menu-title">Booking Report</div>
             </a>
@@ -147,7 +134,7 @@
         </li>
         <li>
             <a class="has-arrow" href="javascript:;">
-                <div class="parent-icon"><i class='bx bx-bookmark-heart'></i>
+                <div class="parent-icon"><i class='lni lni-list'></i>
                 </div>
                 <div class="menu-title">Manage Room List</div>
             </a>
@@ -155,6 +142,20 @@
                 <li> <a href="{{ route('room.list') }}"><i class='bx bx-radio-circle'></i>Room List</a>
                 </li>
 
+            </ul>
+        </li>
+
+        <li>
+            <a href="javascript:;" class="has-arrow">
+                <div class="parent-icon"><i class="lni lni-list"></i>
+                </div>
+                <div class="menu-title">Manage Room Type</div>
+            </a>
+            <ul>
+                <li> <a href="{{ route('list.room.type') }}"><i class='bx bx-radio-circle'></i>List Room Type</a>
+                </li>
+                <li> <a href="{{ route('add.room.type') }}"><i class='bx bx-radio-circle'></i>Add Room Type</a>
+                </li>
             </ul>
         </li>
 
@@ -183,7 +184,7 @@
         </li>
         <li>
             <a class="has-arrow" href="javascript:;">
-                <div class="parent-icon"><i class='bx bx-bookmark-heart'></i>
+                <div class="parent-icon"><i class='lni lni-user'></i>
                 </div>
                 <div class="menu-title">Manage Admin User</div>
             </a>
@@ -196,7 +197,7 @@
         </li>
         <li>
             <a class="has-arrow" href="javascript:;">
-                <div class="parent-icon"><i class='bx bx-bookmark-heart'></i>
+                <div class="parent-icon"><i class='lni lni-cog'></i>
                 </div>
                 <div class="menu-title">Setting</div>
             </a>
@@ -206,14 +207,6 @@
                 <li> <a href="{{ route('site.setting') }}"><i class='bx bx-radio-circle'></i>Site Setting</a>
                 </li>
             </ul>
-        </li>
-        <li class="menu-label">Others</li>
-        <li>
-            <a href="#" target="_blank">
-                <div class="parent-icon"><i class="bx bx-support"></i>
-                </div>
-                <div class="menu-title">Support</div>
-            </a>
         </li>
     </ul>
     <!--end navigation-->
